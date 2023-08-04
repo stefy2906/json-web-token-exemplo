@@ -8,6 +8,7 @@
   <title>Autenticação</title>
 </head>
 <body>
+  <section>
   <form class="formulario" method="post"> 
     <p> Preencha o formulário abaixo:</p>
     
@@ -21,7 +22,8 @@
         <input type="text" id="senha" name="senha" placeholder="Digite sua senha" required>
     </div>
 
-    <input type="submit" name="acao" value="Enviar">
+    <input type="submit" name="acao" action="/logar" method="post" value="Enviar">
 </form>
+</section>
 </body>
 </html>
