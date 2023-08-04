@@ -37,7 +37,7 @@ app.get('/', async function(req, res){
 })
 
 app.post('/logar', (req, res) => {
-  res.render("Você está Logado");
+  res.render('Você está Logado');
 })
 
 app.post('/deslogar', function(req, res) {
