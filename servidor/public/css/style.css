@@ -5,6 +5,7 @@ body {
   width: 400px;
   padding: 30px;
   border:1px solid #ccc;
+align-items: center;
 }
 .formulario p{
   width: 100%;
@@ -47,7 +48,7 @@ textarea{
 }
 input[type=submit]{
   display: block;
-  background-color: #ccc;
+  background-color: white;
   height: 35px;
   border: none;
   outline: 0;
