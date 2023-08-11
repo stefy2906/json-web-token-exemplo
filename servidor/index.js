@@ -37,7 +37,7 @@ app.get('/', async function(req, res){
 })
 
 app.post('/logar', (req, res) => {
-  if(req.body.usuario == "Stefany" && req.body.senha == "123"){
+  if(req.body.usuário == "Stefany" && req.body.senha == "123"){
   res.send('Você está Logado');
   }else{
     res.send('Usuário não encontrado');
