@@ -36,7 +36,7 @@ section {
 }
 input[type=text],
 input[type=password],
-input[type=email],
+input[type=confirme],
 textarea{
   width: 100%;
   padding-left: 10px;

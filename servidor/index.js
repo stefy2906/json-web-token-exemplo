@@ -59,6 +59,10 @@ app.post('/deslogar', function(req, res) {
   })
 })
 
+app.get('/usuarios/cadastrar', function(req, res) {
+  res.render('cadastrar');
+  })
+
 app.listen(3000, function() {
   console.log('App de Exemplo escutando na porta 3000!')
 });
