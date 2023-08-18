@@ -9,6 +9,7 @@ var cookieParser = require('cookie-parser')
 const express = require('express');
 const { usuario } = require('./models');
 
+
 const app = express();
 
 app.set('view engine', 'ejs');
