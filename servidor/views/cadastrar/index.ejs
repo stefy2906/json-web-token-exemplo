@@ -9,7 +9,7 @@
 </head>
 <body>
   <section>
-  <form class="formulario" action="/usuarios/cadastrar" method="get" > 
+  <form class="formulario" action="/usuarios/cadastrar" method="post" > 
     <p> Preencha o Formulário de Cadastro:</p>
     
     <div class="field">
@@ -24,10 +24,10 @@
 
     <div class="field">
         <label for="confirme">Confirme sua senha:</label>
-        <input type="confirme" id="confirmesenha" name="confirmesenha" placeholder="Confirmar senha" required>
+        <input type="password" id="confirmesenha" name="confirmesenha" placeholder="Confirmar senha" required>
     </div>
 
-    <input type="submit" name="acao" value="Enviar">
+    <input type="submit" name="acao" action="/usuario/cadastrar"  value="Enviar">
 </form>
 </section>
 </body>

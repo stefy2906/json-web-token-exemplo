@@ -25,7 +25,7 @@ app.use(
     secret: process.env.SECRET,
     algorithms: ["HS256"],
     getToken: req => req.cookies.token
-  }).unless({ path: ["/autenticar", "/logar", "/deslogar"] })
+  }).unless({ path: ["/autenticar", "/logar", "/deslogar", "/usuarios/cadastrar"] })
 );
 
 app.get('/autenticar', async function(req, res){
@@ -61,8 +61,14 @@ app.post('/deslogar', function(req, res) {
 
 app.get('/usuarios/cadastrar', function(req, res) {
   res.render('cadastrar');
-  })
+})
 
+app.post('/usuarios/cadastrar', function(req, res) {
+  if(req.body.usuário == "Stefany" && req.body.senha == "123" && req.body.confirmesenha == "123")
+  res.json({mensagem:"Você CONSEGUIU!!"})
+})
+  
 app.listen(3000, function() {
   console.log('App de Exemplo escutando na porta 3000!')
+  
 });
