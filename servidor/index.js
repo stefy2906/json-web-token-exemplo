@@ -9,6 +9,15 @@ var cookieParser = require('cookie-parser')
 const express = require('express');
 const { usuario } = require('./models');
 
+app.post('/usuarios/adicionar', async function(req, res){
+  try {
+      await Usuario.create(req.body);
+      res.redirect('/usuarios/listar')
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
+  }
+})
 
 const app = express();
 
@@ -63,6 +72,11 @@ app.post('/deslogar', function(req, res) {
 app.get('/usuarios/cadastrar', function(req, res) {
   res.render('cadastrar');
 })
+
+app.get('/usuarios/listar', function(req, res) {
+  res.render('listar');
+})
+
 
 app.post('/usuarios/cadastrar', function(req, res) {
   if(req.body.senha === req.body.confirmesenha )
