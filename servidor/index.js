@@ -64,8 +64,11 @@ app.get('/usuarios/cadastrar', function(req, res) {
 })
 
 app.post('/usuarios/cadastrar', function(req, res) {
-  if(req.body.usuário == "Stefany" && req.body.senha == "123" && req.body.confirmesenha == "123")
-  res.json({mensagem:"Você CONSEGUIU!!"})
+  if(req.body.senha === req.body.confirmesenha )
+    res.json({mensagem:"Você CONSEGUIU!!"})
+  else(   
+    res.json({mensagem:"Você Não CONSEGUIU!!"})
+  )
 })
   
 app.listen(3000, function() {
