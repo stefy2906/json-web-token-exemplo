@@ -36,17 +36,6 @@ app.get('/', async function(req, res){
   res.render("home")
 })
 
-app.post('/usuarios/cadastrar', async function(req, res){
-  try {
-      await usuario.create(req.body);
-      res.redirect('/usuarios/listar')
-  } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
-  }
-})
-
-
 app.post('/logar', (req, res) => {
   if(req.body.usuário == "Stefany" && req.body.senha == "123"){
   const id = 1;
@@ -74,19 +63,26 @@ app.get('/usuarios/cadastrar', function(req, res) {
   res.render('cadastrar');
 })
 
-app.get('/usuarios/listar', function(req, res) {
-  res.render('listar');
+app.post('/usuarios/cadastrar', async function(req, res){
+  try {
+      await usuario.create(req.body);
+      res.redirect('/usuarios/listar')
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
+  }
 })
 
-
-app.post('/usuarios/cadastrar', function(req, res) {
-  if(req.body.senha === req.body.confirmesenha )
-    res.json({mensagem:"Você CONSEGUIU!!"})
-  else(   
-    res.json({mensagem:"Você Não CONSEGUIU!!"})
-  )
+app.get('/usuarios/listar', async function(req, res){
+  try {
+    var usuarios = await usuario.findAll();
+    res.render('listar', { usuarios });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Ocorreu um erro ao buscar os usuário.' });
+  }
 })
-  
+
 app.listen(3000, function() {
   console.log('App de Exemplo escutando na porta 3000!')
   
