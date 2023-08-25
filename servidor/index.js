@@ -74,7 +74,7 @@ app.get('/usuarios/cadastrar', function(req, res) {
   res.render('cadastrar');
 })
 
-app.post('/usuarios/listar', function(req, res) {
+app.get('/usuarios/listar', function(req, res) {
   res.render('listar');
 })
 
