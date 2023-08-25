@@ -8,6 +8,9 @@
 </head>
 <body>
     <form action="/usuarios/listar" method="get">
+        <% usuarios.forEach((usuario) => { %>
+            <%= usuario.nome %>
+        <% }) %>
     </form>
 </body>
 </html>
