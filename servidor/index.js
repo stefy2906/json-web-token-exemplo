@@ -25,7 +25,7 @@ app.use(
     secret: process.env.SECRET,
     algorithms: ["HS256"],
     getToken: req => req.cookies.token
-  }).unless({ path: ["/autenticar", "/logar", "/deslogar","/usuarios/cadastrar"] })
+  }).unless({ path: ["/autenticar", "/logar", "/deslogar","/usuarios/cadastrar", "/usuarios/listar"] })
 );
 
 app.get('/autenticar', async function(req, res){
@@ -36,7 +36,7 @@ app.get('/', async function(req, res){
   res.render("home")
 })
 
-app.post('/usuarios/adicionar', async function(req, res){
+app.post('/usuarios/cadastrar', async function(req, res){
   try {
       await usuario.create(req.body);
       res.redirect('/usuarios/listar')
