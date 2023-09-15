@@ -66,10 +66,11 @@ app.get('/usuarios/cadastrar', function(req, res) {
 
 app.post('/usuarios/cadastrar', async function(req, res){
   try {
-      await usuario.create(req.body);
-      res.redirect('/usuarios/listar')
       let usuario = req.body
-      usuario.senha = (req.body.senha)
+      usuario.senha = req.body.senha
+      await usuario.create(usuario);
+      res.redirect('/usuarios/listar')
+     
   } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
