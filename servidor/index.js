@@ -2,6 +2,7 @@
 require("dotenv-safe").config();
 const jwt = require('jsonwebtoken');
 var { expressjwt: expressJWT } = require("express-jwt");
+const crypto = require('./crypto');
 const cors = require('cors');
 
 var cookieParser = require('cookie-parser')
@@ -65,7 +66,7 @@ app.get('/usuarios/cadastrar', function(req, res) {
 
 app.post('/usuarios/cadastrar', async function(req, res){
   try {
-      await usuario.create(req.body);
+      await usuario.create(req.body.senha);
       res.redirect('/usuarios/listar')
   } catch (err) {
       console.error(err);
