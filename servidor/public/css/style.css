@@ -1,5 +1,7 @@
 body {
-  background-color: aquamarine;
+  background-image: url(https://img.freepik.com/vetores-gratis/fundo-de-folhas-desenhadas-a-mao_23-2149093051.jpg);
+  background-repeat: no-repeat; /* Do not repeat the image */
+background-size: 100%;
 
 }
 section {
@@ -9,11 +11,13 @@ section {
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%) }
+  transform: translate(-50%, -50%)
+ }
+
 .formulario{
   width: 400px;
   padding: 30px;
-  border:1px solid #fff;
+  border:1px solid #000;
 }
 .formulario p{
   width: 100%;
@@ -43,7 +47,7 @@ textarea{
   height: 30px;
   line-height: 30px;
   border-radius: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   outline: none;
 }
 input#nao{
@@ -57,7 +61,8 @@ textarea{
 }
 input[type=submit]{
   display: block;
-  background-color: white;
+  background-color: black;
+  color: white;
   height: 35px;
   border: none;
   outline: 0;
