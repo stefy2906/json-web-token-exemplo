@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <form action="/usuarios/listar" method="get">
+    <section>
+        <form action="/usuarios/listar" method="get">
         <% usuarios.forEach((usuario) => { %>
-            <%= usuario.nome %> </p>
-            <%= usuario.senha %> </p>
+            <p><%= usuario.nome %> </p>
+            <p><%= usuario.senha %></p> 
         <% }) %>
     </form>
+    </section>
 </body>
 </html>

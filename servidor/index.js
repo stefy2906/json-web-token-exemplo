@@ -72,7 +72,7 @@ app.post('/usuarios/cadastrar', async function(req, res){
       res.redirect('/usuarios/listar')
   } catch (err) {
       console.error(err);
-      res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
+      res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.😢' });
   }
 })
 
@@ -82,7 +82,7 @@ app.post('/usuarios/cadastrar', async function(req, res){
     res.render('listar', {usuarios}); 
   }catch (err) {
     console.error(err);
-    res.status(500).json({ message: 'Ocorreu um erro ao buscar os usuário.' });
+    res.status(500).json({ message: 'Ocorreu um erro ao buscar os usuário.🤔' });
   }
   });
 
