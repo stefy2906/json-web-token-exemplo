@@ -76,7 +76,6 @@ app.post('/usuarios/cadastrar', async function(req, res){
   }
 })
 
-
   app.get('/usuario/listar', async function(req,res){
     try{
     var usuarios = await usuario.findAll(); 
