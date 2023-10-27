@@ -70,22 +70,23 @@ app.post('/usuarios/cadastrar', async function(req, res){
       usuario.senha = req.body.senha
       await usuario.create(usuario);
       res.redirect('/usuarios/listar')
-     
   } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
   }
 })
 
-app.get('/usuarios/listar', async function(req, res){
-  try {
-    var usuarios = await usuario.findAll();
-    res.render('listar', { usuarios });
-  } catch (err) {
+
+  app.get('/usuario/listar', async function(req,res){
+    try{
+    var usuarios = await usuario.findAll(); 
+    res.render('listar', {usuarios}); 
+  }catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Ocorreu um erro ao buscar os usuário.' });
   }
-})
+  });
+
 
 app.listen(3000, function() {
   console.log('App de Exemplo escutando na porta 3000!')
