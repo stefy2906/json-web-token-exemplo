@@ -37,8 +37,9 @@ app.get('/', async function(req, res){
   res.render("home")
 })
 
-app.post('/logar', (req, res) => {
-  if(req.body.usuário == "Stefany" && req.body.senha == "123"){
+app.post('/logar', async (req, res) => {
+  const u = await usuario.findOne({ where: { nome: req.body.nome, senha: crypto.encrypt(req.body.senha) } });
+  if(u){
   const id = 1;
   const token = jwt.sign({id}, process.env.SECRET, {
     expiresIn: 300
@@ -66,20 +67,24 @@ app.get('/usuarios/cadastrar', function(req, res) {
 
 app.post('/usuarios/cadastrar', async function(req, res){
   try {
-      let usuario = req.body
-      usuario.senha = req.body.senha
-      await usuario.create(usuario);
-      res.redirect('/usuarios/listar')
+      const louco = {
+        nome: req.body.nome,
+        senha: crypto.encrypt(req.body.senha)
+      }
+      if(req.body.senha == req.body.confirmesenha){
+        const stef = await usuario.create(louco);
+        res.redirect('/usuarios/listar')
+      }
   } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.😢' });
   }
 })
 
-  app.get('/usuario/listar', async function(req,res){
+  app.get('/usuarios/listar', async function(req,res){
     try{
-    var usuarios = await usuario.findAll(); 
-    res.render('listar', {usuarios}); 
+    var stef = await usuario.findAll();
+    res.render('home', { stef }); 
   }catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Ocorreu um erro ao buscar os usuário.🤔' });

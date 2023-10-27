@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="icon" type="image/x-icon" href="../favicon.jpg">
-  <title>Deslogar</title>
+<link rel="stylesheet" href="/css/style.css">
+  <title>Listar</title>
 </head>
 <body>
   <section>
+  <div>
+       <% stef.forEach((usuario) => { %> 
+    <p> <%= usuario.nome %> </p>
+    <p>   <%= usuario.senha %></p>
+       <% }) %>
   <form action="/deslogar" method="post">
-    <input type="submit" value="Deslogar">
+    <input type="submit" value="Deslogar" class="deslog">
+  </div>
   </form>
 </section>
 </body>
