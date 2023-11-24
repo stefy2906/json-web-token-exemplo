@@ -42,16 +42,16 @@ app.post('/logar', async (req, res) => {
   if(u){
   const id = 1;
   const token = jwt.sign({id}, process.env.SECRET, {
-    expiresIn: 300
+    expiresIn: 300 //gera um token JWT 
   })
 
-res.cookie('token', token, {httpOnly : true});
-return res.json({
-  usuário: req.body.usuário,
-  token:token
-})
+res.cookie('token', token, {httpOnly : true}).json({
+   nome: u.nome,
+   token:token,
+});
+ return res.json(u)
   }
-  res.status(500).json({mensagem:"Login Inválido"})
+  res.status(500).json({mensagem:"Login Inválido"}) 
 })
 
 app.post('/deslogar', function(req, res) {
@@ -84,7 +84,7 @@ app.post('/usuarios/cadastrar', async function(req, res){
   app.get('/usuarios/listar', async function(req,res){
     try{
     var stef = await usuario.findAll();
-    res.render('home', { stef }); 
+    res.json({stef}); 
   }catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Ocorreu um erro ao buscar os usuário.🤔' });
