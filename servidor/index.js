@@ -38,7 +38,7 @@ app.get('/', async function(req, res){
 })
 
 app.post('/logar', async (req, res) => {
-  const u = await usuario.findOne({ where: { nome: req.body.nome, senha: crypto.encrypt(req.body.senha) } });
+  const u = await usuario.findOne({ where: { name: req.body.name, senha: crypto.encrypt(req.body.senha) } });
   if(u){
   const id = 1;
   const token = jwt.sign({id}, process.env.SECRET, {
@@ -46,7 +46,7 @@ app.post('/logar', async (req, res) => {
   })
 
 res.cookie('token', token, {httpOnly : true}).json({
-   nome: u.nome,
+   name: u.name,
    token:token,
 });
  return res.json(u)
@@ -68,7 +68,7 @@ app.get('/usuarios/cadastrar', function(req, res) {
 app.post('/usuarios/cadastrar', async function(req, res){
   try {
       const louco = {
-        nome: req.body.nome,
+        name: req.body.name,
         senha: crypto.encrypt(req.body.senha)
       }
       if(req.body.senha == req.body.confirmesenha){
