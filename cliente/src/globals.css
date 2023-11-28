@@ -1,0 +1,67 @@
+body{
+    height:505px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://gartic.com.br/imgs/mural/ul/ultramarine/pantera-cor-de-rosa.png");
+  
+    background-repeat: no-repeat;
+    background-size:contain;
+  }
+  form{
+    background-color: #f2a3b3;
+    padding:20px 20px;
+    width: 250px;
+    height: 250px;
+    margin-top: 10%;
+    margin-left: 40%;
+    border: 2px solid white;
+    align-items: center;
+    text-align: center;
+  }
+  input{
+    padding: 15px 30px;
+    margin-top: 5px;
+    margin-left: 15px;
+    border-radius: 10px;
+    color: #f2a3b3;
+    border: 2px solid #f2a3b3;
+    transition: border-color 0.3s;
+  }
+  h1{
+    text-align: center;
+    color: white;
+  }
+
+  a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+  }
+  .button-1 {
+    margin-left: 60px;
+    margin-top: 15px;
+    align-items: center;
+    border: 0;
+    border-radius: 8px;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100px;
+    min-width: 100px;
+    padding: 3px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  
+  .button-1 span {
+    background-color: #f2a3b3;
+    color: white;
+    padding: 10px 23px;
+    border-radius: 6px;
+    width: 55%;
+    height: 50%;
+    transition: 300ms;
+    text-align: center;
+    align-items: center;
+  }
